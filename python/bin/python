@@ -1,0 +1,4 @@
+#!/bin/sh
+PYBINDIR=$(dirname $0)
+. $PYBINDIR/setenv.sh
+exec $PYBINDIR/.python.bin  "$@"

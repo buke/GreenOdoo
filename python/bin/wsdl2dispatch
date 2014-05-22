@@ -1,0 +1,10 @@
+#!/usr/bin/env /home/buke/openerp-7.0-12/python/bin/python
+# EASY-INSTALL-ENTRY-SCRIPT: 'ZSI==2.0','console_scripts','wsdl2dispatch'
+__requires__ = 'ZSI==2.0'
+import sys
+from pkg_resources import load_entry_point
+
+if __name__ == '__main__':
+    sys.exit(
+        load_entry_point('ZSI==2.0', 'console_scripts', 'wsdl2dispatch')()
+    )

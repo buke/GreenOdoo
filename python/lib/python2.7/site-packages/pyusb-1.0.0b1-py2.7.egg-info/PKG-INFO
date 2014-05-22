@@ -1,0 +1,15 @@
+Metadata-Version: 1.0
+Name: pyusb
+Version: 1.0.0b1
+Summary: Python USB access module
+Home-page: http://pyusb.sourceforge.net
+Author: Wander Lairson Costa
+Author-email: wander.lairson@gmail.com
+License: BSD
+Description: 
+        PyUSB offers easy USB devices communication in Python.
+        It should work without additional code in any environment with
+        Python >= 2.4, ctypes and an pre-built usb backend library
+        (currently, libusb 0.1.x, libusb 1.x, and OpenUSB).
+        
+Platform: UNKNOWN

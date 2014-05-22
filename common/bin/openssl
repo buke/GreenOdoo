@@ -1,0 +1,8 @@
+#!/bin/sh
+LD_LIBRARY_PATH="/home/buke/openerp-7.0-12/common/lib:$LD_LIBRARY_PATH"	   
+DYLD_LIBRARY_PATH="/home/buke/openerp-7.0-12/common/lib:$DYLD_LIBRARY_PATH"	   
+OPENSSL_CONF="/home/buke/openerp-7.0-12/common/openssl/openssl.cnf"
+export LD_LIBRARY_PATH
+export DYLD_LIBRARY_PATH
+export OPENSSL_CONF
+exec /home/buke/openerp-7.0-12/common/bin/openssl.bin "$@"

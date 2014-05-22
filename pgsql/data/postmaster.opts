@@ -1,0 +1,1 @@
+/home/buke/GreenOpenERP-7.0-latest-linux-x64/pgsql/bin/postgres "-D" "./pgsql/data"

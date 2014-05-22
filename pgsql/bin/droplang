@@ -1,0 +1,4 @@
+#!/bin/sh
+PGBINDIR=$(dirname $0)
+. $PGBINDIR/setenv.sh
+exec $PGBINDIR/droplang.bin "$@"
