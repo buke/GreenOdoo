@@ -1,0 +1,316 @@
+Metadata-Version: 1.1
+Name: PyWebDAV
+Version: 0.9.8
+Summary: WebDAV library including a standalone server for python
+Home-page: http://code.google.com/p/pywebdav/
+Author: Simon Pamies
+Author-email: spamsch@gmail.com
+License: GPL v2
+Description: 
+        WebDAV library for python.
+        
+        Consists of a *server* that is ready to run
+        Serve and the DAV package that provides WebDAV server(!) functionality.
+        
+        Currently supports
+        
+            * WebDAV level 1
+            * Level 2 (LOCK, UNLOCK)
+            * Experimental iterator support
+        
+        It plays nice with
+        
+            * Mac OS X Finder
+            * Windows Explorer
+            * iCal
+            * cadaver
+            * Nautilus
+        
+        This package does *not* provide client functionality.
+        
+        Installation
+        ============
+        
+        After installation of this package you will have a new script in you
+        $PYTHON/bin directory called *davserver*. This serves as the main entry point
+        to the server.
+        
+        Examples
+        ========
+        
+        Example (using easy_install)::
+        
+            easy_install PyWebDAV
+            davserver -D /tmp -n
+        
+        Example (unpacking file locally)::
+        
+            tar xvzf PyWebDAV-$VERSION.tar.gz
+            cd pywebdav
+            python setup.py develop
+            davserver -D /tmp -n
+        
+        For more information: http://code.google.com/p/pywebdav/
+        
+        Changes
+        =======
+        
+        
+        0.9.8 (March 25 2011)
+        ---------------------
+        
+        Restructured. Moved DAV package to pywebdav.lib. All integrators must simply replace
+        ''from DAV'' imports to ''from pywebdav.lib''.
+        [Simon Pamies]
+        
+        Remove BufferingHTTPServer, reuse the header parser of BaseHTTPServer.
+        [Cédric Krier]
+        
+        Fix issue 44: Incomplete PROPFIND response
+        [Sascha Silbe]
+        
+        0.9.4 (April 15 2010)
+        ---------------------
+          
+        Add somme configuration setting variable to enable/disable iterator and chunk support
+        [Stephane Klein]
+        
+        Removed os.system calls thus fixing issue 32
+        [Simon Pamies]
+        
+        Fixed issue 14
+        [Simon Pamies]
+        
+        Removed magic.py module - replaced with mimetypes module
+        [Simon Pamies]
+        
+        Print User-Agent information in log request.
+        [Stephane Klein]
+        
+        Fix issue 13 : return http 1.0 compatible response (not chunked) when request http version is 1.0
+        [cliff.wells]
+        
+        Enhance logging mechanism
+        [Stephane Klein]
+        
+        Fix issue 15 : I've error when I execute PUT action with Apple Finder client
+        [Stephane Klein]
+        
+        Fix issue 14 : config.ini boolean parameter reading issue
+        [Stephane Klein]
+        
+        0.9.3 (July 2 2009)
+        -------------------
+        
+        Setting WebDAV v2 as default because LOCK and UNLOCK seem
+        to be stable by now. -J parameter is ignored and will go away.
+        [Simon Pamies]
+        
+        Fix for PROPFIND to return *all* properties
+        [Cedric Krier]
+        
+        Fixed do_PUT initialisation
+        [Cedric Krier]
+        
+        Added REPORT support
+        [Cedric Krier]
+        
+        Added support for gzip encoding
+        [Cedric Krier]
+        
+        Fix for wrong --port option
+        [Martin Wendt]
+        
+        Handle paths correctly for Windows related env
+        [Martin Wendt]
+        
+        Included mimetype check for files
+        based on magic.py from Jason Petrone. Included
+        magic.py into this package. All magic.py code
+        (c) 2000 Jason Petrone. Included from
+        http://www.jsnp.net/code/magic.py.
+        [Joerg Friedrich, Simon Pamies]
+        
+        Status check not working when server is running
+        [Joerg Friedrich]
+        
+        Fixed wrong time formatting for Last-Modified
+        and creationdate (must follow RFC 822 and 3339)
+        [Cedric Krier]
+        
+        0.9.2 (May 11 2009)
+        -------------------
+        
+        Fixed COPY, MOVE, DELETE to support locked
+        resources
+        [Simon Pamies]
+        
+        Fixed PROPFIND to return 404 for non existing
+        objects and also reduce property bloat
+        [Simon Pamies]
+        
+        Implemented fully working LOCK and UNLOCK based
+        on in memory lock/token database. Now fully supports
+        cadaver and Mac OS X Finder.
+        [Simon Pamies]
+        
+        Fixed MKCOL answer to 201
+        [Jesus Cea]
+        
+        Fixed MSIE webdav headers
+        [Jesus Cea]
+        
+        Make propfind respect the depth from queries
+        [Cedric Krier]
+        
+        Add ETag in the header of GET. This is needed to implement 
+        GroupDAV, CardDAV and CalDAV.
+        [Cedric Krier]
+        
+        Handle the "Expect 100-continue" header
+        [Cedric Krier]
+        
+        Remove debug statements and remove logging
+        [Cedric Krier]
+        
+        Use the Host header in baseuri if set.
+        [Cedric Krier]
+        
+        Adding If-Match on PUT and DELETE
+        [Cedric Krier]
+        
+        0.9.1 (May 4th 2009)
+        --------------------
+        
+        Restructured the structure a bit: Made server package
+        a real python package. Adapted error messages. Prepared
+        egg distribution.
+        [Simon Pamies]
+        
+        Fix for time formatting bug. Thanks to Ian Kallen
+        [Simon Pamies]
+        
+        Small fixes for WebDavServer (status not handled correctly) and
+        propfind (children are returned from a PROPFIND with "Depth: 0")
+        [Kjetil Irbekk]
+        
+        0.8 (Jul 15th 2008)
+        -------------------
+        
+        First try of an implementation of the LOCK and UNLOCK features.
+        Still very incomplete (read: very incomplete) and not working
+        in this version.
+        [Simon Pamies]
+        
+        Some code cleanups to prepare restructuring
+        [Simon Pamies]
+        
+        Port to minidom because PyXML isn't longer maintained
+        [Martin v. Loewis]
+        
+        utils.py: Makes use of DOMImplementation class to create a new xml document
+        Uses dom namespace features to create elements within DAV: namespace
+        [Stephane Bonhomme]
+        
+        davcmd.py: Missing an indent in loop on remove and copy operations on trees, the
+        effect was that only the last object was removed/copied : always leads
+        to a failure when copying collections.
+        [Stephane Bonhomme]
+        
+        propfind.py: missing a return at the end of the createResponse method (case of a
+        propfind without xml body, should act as a allprops).
+        [Stephane Bonhomme]
+        
+        0.7
+        ---
+        
+        Added MySQL auth support brought by Vince Spicer
+        Added INI file support also  introduced by Vince
+        Some minor bugfixes and integration changes.
+        Added instance counter to make multiple instances possible
+        Extended --help text a bit
+        [Simon Pamies]
+        
+        0.6
+        ---
+        
+        Added bugfixes for buggy Mac OS X Finder implementation
+        Finder tries to stat .DS_Store without checking if it exists
+        Cleaned up readme and install files
+        Moved license to extra file
+        Added distutils support
+        Refactored module layout
+        Refactored class and module names
+        Added commandline support
+        Added daemonize support
+        Added logging facilities
+        Added extended arguments
+        
+        some more things I can't remember
+        [Simon Pamies]
+        
+        Changes since 0.5.1
+        -------------------
+        Updated to work with latest 4Suite
+        
+        Changes since 0.5
+        -----------------
+        
+        added constants.py 
+        data.py must now return COLLECTION or OBJECT when getting asked for
+        resourcetype. propfind.py will automatically generate the right xml 
+        element.
+        <href> now only contains the path
+        changed HTTP/1.0 header to HTTP/1.1 which makes it work with WebFolders
+        added DO_AUTH constant to AuthServer.py to control whether authentication
+        should be done or not.
+        added chunked responses in davserver.py
+        One step in order to get a server with keep-alive one day.
+        we now use 4DOM instead if PyDOM
+        the URI in a href is quoted
+        complete rewrite of the PROPFIND stuff:
+        error responses are now generated when a property if not found or not accessible
+        namespace handling is now better. We forget any prefix and create them ourselves later in the response.
+        added superclass iface.py in DAV/ in order to make implementing
+        interface classes easier. See data.py for how to use it.
+        Also note that the way data.py handles things might have changed from
+        the previous release (if you don't like it wait for 1.0!)
+        added functions to iface.py which format creationdate and lastmodified
+        implemented HEAD
+        
+        lots of bugfixes
+        
+        Changes since 0.3
+        -----------------
+        
+        removed hard coded base uri from davserver.py and replaced by
+        a reference to the dataclass. Added this to iface.py where you
+        have to define it in your subclass.
+        added davcmd.py which contains utility functions for copy and move
+        reimplemented DELETE and removed dependencies to pydom. move actual
+        delete method to davcmd.
+        implemented COPY
+        implemented MOVE
+        fixed bugs in errors.py, needs revisiting anyway..
+        URIs are now unquoted in davserver.py before being used
+        paths in data.py are quoted in system calls in order to support
+        blanks in pathnames (e.g. mkdir '%s' )
+        switched to exceptions when catching errors from the interface class
+        added exists() method to data.py
+        added more uri utility functions to utils.py
+        millenium bugfixes ;-)
+        
+        
+Keywords: webdav,server,dav,standalone,library,gpl,http,rfc2518,rfc 2518
+Platform: Unix
+Platform: Windows
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries
