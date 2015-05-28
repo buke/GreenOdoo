@@ -1,0 +1,203 @@
+# Chinese (Simplified) translation for openobject-addons
+# Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
+# This file is distributed under the same license as the openobject-addons package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: openobject-addons\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2015-01-21 14:07+0000\n"
+"PO-Revision-Date: 2015-04-09 07:55+0000\n"
+"Last-Translator: Talway <1473162392@qq.com>\n"
+"Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2015-04-10 05:30+0000\n"
+"X-Generator: Launchpad (build 17413)\n"
+
+#. module: account_analytic_default
+#: field:product.product,rules_count:0
+#: field:product.template,rules_count:0
+msgid "# Analytic Rules"
+msgstr "分析法则"
+
+#. module: account_analytic_default
+#: view:account.analytic.default:account_analytic_default.view_account_analytic_default_form_search
+msgid "Accounts"
+msgstr "项"
+
+#. module: account_analytic_default
+#: view:account.analytic.default:account_analytic_default.view_account_analytic_default_form_search
+#: field:account.analytic.default,analytic_id:0
+msgid "Analytic Account"
+msgstr "辅助核算项"
+
+#. module: account_analytic_default
+#: view:account.analytic.default:account_analytic_default.view_account_analytic_default_form
+#: view:account.analytic.default:account_analytic_default.view_account_analytic_default_tree
+#: model:ir.actions.act_window,name:account_analytic_default.action_analytic_default_list
+#: model:ir.actions.act_window,name:account_analytic_default.action_product_default_list
+#: model:ir.ui.menu,name:account_analytic_default.menu_analytic_default_list
+msgid "Analytic Defaults"
+msgstr "默认辅助核算项"
+
+#. module: account_analytic_default
+#: model:ir.model,name:account_analytic_default.model_account_analytic_default
+msgid "Analytic Distribution"
+msgstr "辅助核算分摊"
+
+#. module: account_analytic_default
+#: model:ir.actions.act_window,name:account_analytic_default.analytic_rule_action_partner
+#: model:ir.actions.act_window,name:account_analytic_default.analytic_rule_action_user
+#: view:product.product:account_analytic_default.product_form_view_default_analytic_button
+#: view:product.template:account_analytic_default.product_template_view_default_analytic_button
+msgid "Analytic Rules"
+msgstr "分析规则"
+
+#. module: account_analytic_default
+#: view:account.analytic.default:account_analytic_default.view_account_analytic_default_form_search
+#: field:account.analytic.default,company_id:0
+msgid "Company"
+msgstr "公司"
+
+#. module: account_analytic_default
+#: view:account.analytic.default:account_analytic_default.view_account_analytic_default_form
+msgid "Conditions"
+msgstr "条件"
+
+#. module: account_analytic_default
+#: field:account.analytic.default,create_uid:0
+msgid "Created by"
+msgstr "创建人"
+
+#. module: account_analytic_default
+#: field:account.analytic.default,create_date:0
+msgid "Created on"
+msgstr "创建时间"
+
+#. module: account_analytic_default
+#: help:account.analytic.default,date_stop:0
+msgid "Default end date for this Analytic Account."
+msgstr "辅助核算项的默认结束日期"
+
+#. module: account_analytic_default
+#: help:account.analytic.default,date_start:0
+msgid "Default start date for this Analytic Account."
+msgstr "辅助核算项的默认开始日期"
+
+#. module: account_analytic_default
+#: field:account.analytic.default,date_stop:0
+msgid "End Date"
+msgstr "结束日期"
+
+#. module: account_analytic_default
+#: model:ir.actions.act_window,name:account_analytic_default.act_account_acount_move_line_open
+msgid "Entries"
+msgstr "条目"
+
+#. module: account_analytic_default
+#: help:account.analytic.default,sequence:0
+msgid ""
+"Gives the sequence order when displaying a list of analytic distribution"
+msgstr "按序列显示辅助核算方案"
+
+#. module: account_analytic_default
+#: view:account.analytic.default:account_analytic_default.view_account_analytic_default_form_search
+msgid "Group By"
+msgstr "分组按"
+
+#. module: account_analytic_default
+#: field:account.analytic.default,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: account_analytic_default
+#: model:ir.model,name:account_analytic_default.model_account_invoice_line
+msgid "Invoice Line"
+msgstr "发票行"
+
+#. module: account_analytic_default
+#: field:account.analytic.default,write_uid:0
+msgid "Last Updated by"
+msgstr "最近更新"
+
+#. module: account_analytic_default
+#: field:account.analytic.default,write_date:0
+msgid "Last Updated on"
+msgstr "最后更新日期"
+
+#. module: account_analytic_default
+#: view:account.analytic.default:account_analytic_default.view_account_analytic_default_form_search
+#: field:account.analytic.default,partner_id:0
+msgid "Partner"
+msgstr "业务伙伴"
+
+#. module: account_analytic_default
+#: model:ir.model,name:account_analytic_default.model_stock_picking
+msgid "Picking List"
+msgstr "装箱单"
+
+#. module: account_analytic_default
+#: view:account.analytic.default:account_analytic_default.view_account_analytic_default_form_search
+#: field:account.analytic.default,product_id:0
+#: model:ir.model,name:account_analytic_default.model_product_product
+msgid "Product"
+msgstr "产品"
+
+#. module: account_analytic_default
+#: model:ir.model,name:account_analytic_default.model_product_template
+msgid "Product Template"
+msgstr "产品模板"
+
+#. module: account_analytic_default
+#: model:ir.model,name:account_analytic_default.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "销售订单明细"
+
+#. module: account_analytic_default
+#: help:account.analytic.default,company_id:0
+msgid ""
+"Select a company which will use analytic account specified in analytic "
+"default (e.g. create new customer invoice or Sales order if we select this "
+"company, it will automatically take this as an analytic account)"
+msgstr "选择一个公司用于默认分析指定的成本管理分析（例如：根据所选公司创建新客户单据或销售订单，系统将自动照此进行成本管理分析）"
+
+#. module: account_analytic_default
+#: help:account.analytic.default,partner_id:0
+msgid ""
+"Select a partner which will use analytic account specified in analytic "
+"default (e.g. create new customer invoice or Sales order if we select this "
+"partner, it will automatically take this as an analytic account)"
+msgstr "选择一个伙伴用于默认分析指定的成本管理分析（例如：根据所选伙伴创建新客户单据或销售订单，系统将自动照此进行成本管理分析）"
+
+#. module: account_analytic_default
+#: help:account.analytic.default,product_id:0
+msgid ""
+"Select a product which will use analytic account specified in analytic "
+"default (e.g. create new customer invoice or Sales order if we select this "
+"product, it will automatically take this as an analytic account)"
+msgstr "选择一个产品用于默认分析指定的成本管理分析（例如：根据所选产品创建新客户单据或销售订单，系统将自动照此进行成本管理分析）"
+
+#. module: account_analytic_default
+#: help:account.analytic.default,user_id:0
+msgid ""
+"Select a user which will use analytic account specified in analytic default."
+msgstr "选择一个用户用在辅助核算科目指定的默认值"
+
+#. module: account_analytic_default
+#: field:account.analytic.default,sequence:0
+msgid "Sequence"
+msgstr "序列"
+
+#. module: account_analytic_default
+#: field:account.analytic.default,date_start:0
+msgid "Start Date"
+msgstr "开始日期"
+
+#. module: account_analytic_default
+#: view:account.analytic.default:account_analytic_default.view_account_analytic_default_form_search
+#: field:account.analytic.default,user_id:0
+msgid "User"
+msgstr "用户"

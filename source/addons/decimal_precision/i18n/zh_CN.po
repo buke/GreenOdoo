@@ -1,0 +1,82 @@
+# Chinese (Simplified) translation for openobject-addons
+# Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
+# This file is distributed under the same license as the openobject-addons package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: openobject-addons\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2015-01-21 14:08+0000\n"
+"PO-Revision-Date: 2015-02-17 02:00+0000\n"
+"Last-Translator: Oliver Yuan <Unknown>\n"
+"Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2015-02-19 05:41+0000\n"
+"X-Generator: Launchpad (build 17341)\n"
+
+#. module: decimal_precision
+#: field:decimal.precision,create_uid:0
+#: field:decimal.precision.test,create_uid:0
+msgid "Created by"
+msgstr "创建人"
+
+#. module: decimal_precision
+#: field:decimal.precision,create_date:0
+#: field:decimal.precision.test,create_date:0
+msgid "Created on"
+msgstr "创建于"
+
+#. module: decimal_precision
+#: model:ir.actions.act_window,name:decimal_precision.action_decimal_precision_form
+#: model:ir.ui.menu,name:decimal_precision.menu_decimal_precision_form
+msgid "Decimal Accuracy"
+msgstr "小数精度"
+
+#. module: decimal_precision
+#: view:decimal.precision:decimal_precision.view_decimal_precision_form
+#: view:decimal.precision:decimal_precision.view_decimal_precision_tree
+msgid "Decimal Precision"
+msgstr "小数精度"
+
+#. module: decimal_precision
+#: field:decimal.precision,digits:0
+msgid "Digits"
+msgstr "位数"
+
+#. module: decimal_precision
+#: field:decimal.precision,id:0
+#: field:decimal.precision.test,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: decimal_precision
+#: field:decimal.precision,write_uid:0
+#: field:decimal.precision.test,write_uid:0
+msgid "Last Updated by"
+msgstr "最后更新"
+
+#. module: decimal_precision
+#: field:decimal.precision,write_date:0
+#: field:decimal.precision.test,write_date:0
+msgid "Last Updated on"
+msgstr "最后一次更新"
+
+#. module: decimal_precision
+#: sql_constraint:decimal.precision:0
+msgid "Only one value can be defined for each given usage!"
+msgstr "每个用途只能定义一个值"
+
+#. module: decimal_precision
+#: field:decimal.precision,name:0
+msgid "Usage"
+msgstr "用途"
+
+#. module: decimal_precision
+#: field:decimal.precision.test,float:0
+#: field:decimal.precision.test,float_2:0
+#: field:decimal.precision.test,float_4:0
+msgid "unknown"
+msgstr "未知"
