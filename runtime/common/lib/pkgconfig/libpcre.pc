@@ -1,0 +1,12 @@
+# Package Information for pkg-config
+
+prefix=/home/buke/openerp-7.0-12/common
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libpcre
+Description: PCRE - Perl compatible regular expressions C library with 8 bit character support
+Version: 8.31
+Libs: -L${libdir} -lpcre
+Cflags: -I${includedir} 

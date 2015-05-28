@@ -1,0 +1,12 @@
+prefix=/home/buke/openerp-7.0-12/common
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+
+Name: libexslt
+Version: 0.8.15
+Description: EXSLT Extension library
+Requires: libxml-2.0
+Libs: -L${libdir} -lexslt -lxslt  -L/home/buke/openerp-7.0-12/common/lib -lxml2 -lz -liconv -lm -lm 
+Cflags: -I${includedir}

@@ -1,0 +1,15 @@
+CHANGELOG
+COPYRIGHT
+INSTALL
+LICENSE
+MANIFEST.in
+README
+setup.cfg
+setup.py
+vatnumber/__init__.py
+vatnumber/tests.py
+vatnumber.egg-info/PKG-INFO
+vatnumber.egg-info/SOURCES.txt
+vatnumber.egg-info/dependency_links.txt
+vatnumber.egg-info/requires.txt
+vatnumber.egg-info/top_level.txt

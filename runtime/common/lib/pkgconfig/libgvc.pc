@@ -1,0 +1,12 @@
+prefix=/home/buke/openerp-7.0-12/common
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include/graphviz
+plugins=6
+
+Name: libgvc
+Description: The GraphVizContext library 
+Version: 2.26.3
+Libs: -L${libdir} -lgvc -lgraph -lcdt
+Cflags: -I${includedir}
+
