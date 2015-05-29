@@ -1,0 +1,4 @@
+[console_scripts]
+wsdl2dispatch = ZSI.generate.commands:wsdl2dispatch
+wsdl2py = ZSI.generate.commands:wsdl2py
+

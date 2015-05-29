@@ -1,0 +1,13 @@
+prefix=/home/buke/openerp-7.0-12/common
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+APRUTIL_MAJOR_VERSION=1
+includedir=${prefix}/include/apr-${APRUTIL_MAJOR_VERSION}
+
+Name: APR Utils
+Description: Companion library for APR
+Version: 1.4.1
+# assume that apr-util requires libapr of same major version
+Requires: apr-1
+Libs: -L${libdir} -laprutil-${APRUTIL_MAJOR_VERSION} -lldap -llber -llber -lexpat -liconv
+Cflags: -I${includedir}

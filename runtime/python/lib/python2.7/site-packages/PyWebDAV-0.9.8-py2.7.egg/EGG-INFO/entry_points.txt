@@ -1,0 +1,3 @@
+[console_scripts]
+davserver = pywebdav.server.server:run
+

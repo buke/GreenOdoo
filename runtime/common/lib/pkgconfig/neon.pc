@@ -1,0 +1,11 @@
+prefix=/home/buke/openerp-7.0-12/common
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: neon
+Description: HTTP/WebDAV client library
+Version: 0.29.6
+Libs.private: -lssl -lcrypto  -lz -lexpat
+Libs: -L${libdir} -lneon 
+Cflags: -I${includedir}/neon 

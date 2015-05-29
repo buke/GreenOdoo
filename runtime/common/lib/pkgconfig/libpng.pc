@@ -1,0 +1,11 @@
+prefix=/home/buke/openerp-7.0-12/common
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include/libpng15
+
+Name: libpng
+Description: Loads and saves PNG files
+Version: 1.5.9
+Libs: -L${libdir} -lpng15
+Libs.private: -lm -lz -lm 
+Cflags: -I${includedir}
