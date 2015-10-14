@@ -40,7 +40,11 @@ def validate(cr, inst_id, ident, signal, force_running=False):
     stack = []
     for i, witem in enumerate(cr.dictfetchall()):
         stack = []
+<<<<<<< HEAD
         if i:
+=======
+        if i > 0:
+>>>>>>> b0a4dd0127ddda57fd07680e6ea0a27cfb57692c
             # test if previous workitem has already processed this one
             cr.execute("select id from wkf_workitem where id=%s", (witem['id'],))
             if not cr.fetchone():
