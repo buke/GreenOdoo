@@ -1,0 +1,3 @@
+_imagingft.so
+_imaging.so
+_imagingmath.so

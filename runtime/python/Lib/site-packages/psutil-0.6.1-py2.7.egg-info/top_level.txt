@@ -1,2 +1,0 @@
-psutil
-_psutil_mswindows

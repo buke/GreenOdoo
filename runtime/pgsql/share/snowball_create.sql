@@ -1,3 +1,4 @@
+-- Language-specific snowball dictionaries
 -- src/backend/snowball/snowball_func.sql.in$
 
 SET search_path = pg_catalog;

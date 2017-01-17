@@ -1,0 +1,5 @@
+#!/home/buke/openerp-7.0-12/python/bin/.python2.7.bin
+# EASY-INSTALL-SCRIPT: 'Mako==0.7.3','mako-render'
+__requires__ = 'Mako==0.7.3'
+import pkg_resources
+pkg_resources.run_script('Mako==0.7.3', 'mako-render')

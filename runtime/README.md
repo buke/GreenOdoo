@@ -1,3 +1,4 @@
 GreenOdoo-Runtime
-====================
-This branch is GreenOdoo-Runtime for Win32.
+======================
+
+This branch is GreenOdoo-Runtime for Linux64.

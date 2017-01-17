@@ -1,0 +1,10 @@
+prefix=/home/buke/openerp-7.0-12/common
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include/graphviz
+
+Name: libcdt
+Description: Container DataType library
+Version: 2.26.3
+Libs: -L${libdir} -lcdt
+Cflags: -I${includedir}

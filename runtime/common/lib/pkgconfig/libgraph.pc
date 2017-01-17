@@ -1,0 +1,10 @@
+prefix=/home/buke/openerp-7.0-12/common
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include/graphviz
+
+Name: libgraph
+Description: Graph library (file i/o, dot language parsing, graph, subgraph, node, edge, attribute, data structure manipulation)
+Version: 2.26.3
+Libs: -L${libdir} -lgraph -lcdt
+Cflags: -I${includedir}

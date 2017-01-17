@@ -1,0 +1,5 @@
+#!/bin/sh
+
+. /home/buke/openerp-7.0-12/scripts/setenv.sh
+
+exec /home/buke/openerp-7.0-12/common/bin/.iconv.bin  "$@"

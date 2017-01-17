@@ -214,8 +214,6 @@
 1193	pg_proc	0	array constructor with value
 1286	pg_proc	0	array constructor with value
 2331	pg_proc	0	expand array to set of rows
-3167	pg_proc	0	remove any occurrences of an element from an array
-3168	pg_proc	0	replace any occurrences of an element in an array
 2333	pg_proc	0	aggregate transition function
 2334	pg_proc	0	aggregate final function
 2335	pg_proc	0	concatenate aggregate input into an array
@@ -271,13 +269,10 @@
 954	pg_proc	0	large object read
 955	pg_proc	0	large object write
 956	pg_proc	0	large object seek
-3170	pg_proc	0	large object seek (64 bit)
 957	pg_proc	0	large object create
 715	pg_proc	0	large object create
 958	pg_proc	0	large object position
-3171	pg_proc	0	large object position (64 bit)
 1004	pg_proc	0	truncate large object
-3172	pg_proc	0	truncate large object (64 bit)
 964	pg_proc	0	large object unlink (delete)
 975	pg_proc	0	box area
 976	pg_proc	0	box width
@@ -586,8 +581,6 @@
 2289	pg_proc	0	convert generic options array to name/value table
 1619	pg_proc	0	type of the argument
 3162	pg_proc	0	collation of the argument; implementation of the COLLATION FOR expression
-3842	pg_proc	0	is a relation insertable/updatable/deletable
-3843	pg_proc	0	is a column updatable
 1250	pg_proc	0	deferred UNIQUE constraint check
 1644	pg_proc	0	referential integrity FOREIGN KEY ... REFERENCES
 1645	pg_proc	0	referential integrity FOREIGN KEY ... REFERENCES
@@ -956,9 +949,7 @@
 2084	pg_proc	0	SHOW ALL as a function
 1371	pg_proc	0	view system lock information
 1065	pg_proc	0	view two-phase transactions
-3819	pg_proc	0	view members of a multixactid
 3537	pg_proc	0	get identification of SQL object
-3839	pg_proc	0	get machine-parseable identification of SQL object
 2079	pg_proc	0	is table visible in search path?
 2080	pg_proc	0	is type visible in search path?
 2081	pg_proc	0	is function visible in search path?
@@ -977,8 +968,6 @@
 2096	pg_proc	0	terminate a server process
 2172	pg_proc	0	prepare for taking an online backup
 2173	pg_proc	0	finish taking an online backup
-3813	pg_proc	0	true if server is in online backup
-3814	pg_proc	0	start time of an online backup
 2848	pg_proc	0	switch to new xlog file
 3098	pg_proc	0	create a named restore point
 2849	pg_proc	0	current xlog write location
@@ -1212,8 +1201,6 @@
 2299	pg_proc	0	I/O
 2300	pg_proc	0	I/O
 2301	pg_proc	0	I/O
-3594	pg_proc	0	I/O
-3595	pg_proc	0	I/O
 2302	pg_proc	0	I/O
 2303	pg_proc	0	I/O
 2304	pg_proc	0	I/O
@@ -1475,25 +1462,6 @@
 3154	pg_proc	0	map array to json with optional pretty printing
 3155	pg_proc	0	map row to json
 3156	pg_proc	0	map row to json with optional pretty printing
-3173	pg_proc	0	json aggregate transition function
-3174	pg_proc	0	json aggregate final function
-3175	pg_proc	0	aggregate input into json
-3176	pg_proc	0	map input to json
-3947	pg_proc	0	get json object field
-3948	pg_proc	0	get json object field as text
-3949	pg_proc	0	get json array element
-3950	pg_proc	0	get json array element as text
-3951	pg_proc	0	get value from json with path elements
-3952	pg_proc	0	get value from json with path elements
-3953	pg_proc	0	get value from json as text with path elements
-3954	pg_proc	0	get value from json as text with path elements
-3955	pg_proc	0	key value pairs of a json object
-3956	pg_proc	0	length of json array
-3957	pg_proc	0	get json object keys
-3958	pg_proc	0	key value pairs of a json object
-3959	pg_proc	0	key value pairs of a json object
-3960	pg_proc	0	get record fields from a json object
-3961	pg_proc	0	get set of records with fields from a json array of objects
 2952	pg_proc	0	I/O
 2953	pg_proc	0	I/O
 2960	pg_proc	0	less-equal-greater
@@ -1677,7 +1645,6 @@
 3881	pg_proc	0	GiST support
 3902	pg_proc	0	hash a range
 3916	pg_proc	0	range typanalyze
-3169	pg_proc	0	restriction selectivity for range operators
 3914	pg_proc	0	convert an int4 range to canonical form
 3928	pg_proc	0	convert an int8 range to canonical form
 3915	pg_proc	0	convert a date range to canonical form
@@ -1723,17 +1690,11 @@
 4024	pg_proc	0	SP-GiST support for k-d tree over point
 4025	pg_proc	0	SP-GiST support for k-d tree over point
 4026	pg_proc	0	SP-GiST support for k-d tree over point
-4027	pg_proc	0	SP-GiST support for radix tree over text
-4028	pg_proc	0	SP-GiST support for radix tree over text
-4029	pg_proc	0	SP-GiST support for radix tree over text
-4030	pg_proc	0	SP-GiST support for radix tree over text
-4031	pg_proc	0	SP-GiST support for radix tree over text
-3469	pg_proc	0	SP-GiST support for quad tree over range
-3470	pg_proc	0	SP-GiST support for quad tree over range
-3471	pg_proc	0	SP-GiST support for quad tree over range
-3472	pg_proc	0	SP-GiST support for quad tree over range
-3473	pg_proc	0	SP-GiST support for quad tree over range
-3566	pg_proc	0	list objects dropped by the current command
+4027	pg_proc	0	SP-GiST support for suffix tree over text
+4028	pg_proc	0	SP-GiST support for suffix tree over text
+4029	pg_proc	0	SP-GiST support for suffix tree over text
+4030	pg_proc	0	SP-GiST support for suffix tree over text
+4031	pg_proc	0	SP-GiST support for suffix tree over text
 16	pg_type	0	boolean, 'true'/'false'
 17	pg_type	0	variable-length string, binary values escaped
 18	pg_type	0	single character
@@ -2527,12 +2488,6 @@
 3898	pg_operator	0	range union
 3899	pg_operator	0	range difference
 3900	pg_operator	0	range intersection
-3962	pg_operator	0	get json object field
-3963	pg_operator	0	get json object field as text
-3964	pg_operator	0	get json array element
-3965	pg_operator	0	get json array element as text
-3966	pg_operator	0	get value from json with path elements
-3967	pg_operator	0	get value from json as text with path elements
 403	pg_am	0	b-tree index access method
 405	pg_am	0	hash index access method
 783	pg_am	0	GiST index access method

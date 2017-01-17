@@ -1,8 +1,8 @@
 /*
  * SQL Information Schema
- * as defined in ISO/IEC 9075-11:2011
+ * as defined in ISO/IEC 9075-11:2008
  *
- * Copyright (c) 2003-2013, PostgreSQL Global Development Group
+ * Copyright (c) 2003-2012, PostgreSQL Global Development Group
  *
  * src/backend/catalog/information_schema.sql
  */
@@ -730,9 +730,10 @@ CREATE VIEW columns AS
            CAST('NEVER' AS character_data) AS is_generated,
            CAST(null AS character_data) AS generation_expression,
 
-           CAST(CASE WHEN c.relkind = 'r' OR
-                          (c.relkind IN ('v', 'f') AND
-                           pg_column_is_updatable(c.oid, a.attnum, false))
+           CAST(CASE WHEN c.relkind = 'r'
+                          OR (c.relkind = 'v'
+                              AND EXISTS (SELECT 1 FROM pg_rewrite WHERE ev_class = c.oid AND ev_type = '2' AND is_instead)
+                              AND EXISTS (SELECT 1 FROM pg_rewrite WHERE ev_class = c.oid AND ev_type = '4' AND is_instead))
                 THEN 'YES' ELSE 'NO' END AS yes_or_no) AS is_updatable
 
     FROM (pg_attribute a LEFT JOIN pg_attrdef ad ON attrelid = adrelid AND attnum = adnum)
@@ -808,14 +809,6 @@ GRANT SELECT ON constraint_column_usage TO PUBLIC;
 
 /*
  * 5.23
- * CONSTRAINT_PERIOD_USAGE view
- */
-
--- feature not supported
-
-
-/*
- * 5.24
  * CONSTRAINT_TABLE_USAGE view
  */
 
@@ -839,11 +832,11 @@ CREATE VIEW constraint_table_usage AS
 GRANT SELECT ON constraint_table_usage TO PUBLIC;
 
 
--- 5.25 DATA_TYPE_PRIVILEGES view appears later.
+-- 5.24 DATA_TYPE_PRIVILEGES view appears later.
 
 
 /*
- * 5.26
+ * 5.25
  * DIRECT_SUPERTABLES view
  */
 
@@ -851,7 +844,7 @@ GRANT SELECT ON constraint_table_usage TO PUBLIC;
 
 
 /*
- * 5.27
+ * 5.26
  * DIRECT_SUPERTYPES view
  */
 
@@ -859,7 +852,7 @@ GRANT SELECT ON constraint_table_usage TO PUBLIC;
 
 
 /*
- * 5.28
+ * 5.27
  * DOMAIN_CONSTRAINTS view
  */
 
@@ -910,7 +903,7 @@ GRANT SELECT ON domain_udt_usage TO PUBLIC;
 
 
 /*
- * 5.29
+ * 5.28
  * DOMAINS view
  */
 
@@ -995,11 +988,11 @@ CREATE VIEW domains AS
 GRANT SELECT ON domains TO PUBLIC;
 
 
--- 5.30 ELEMENT_TYPES view appears later.
+-- 5.29 ELEMENT_TYPES view appears later.
 
 
 /*
- * 5.31
+ * 5.30
  * ENABLED_ROLES view
  */
 
@@ -1012,7 +1005,7 @@ GRANT SELECT ON enabled_roles TO PUBLIC;
 
 
 /*
- * 5.32
+ * 5.31
  * FIELDS view
  */
 
@@ -1020,7 +1013,7 @@ GRANT SELECT ON enabled_roles TO PUBLIC;
 
 
 /*
- * 5.33
+ * 5.32
  * KEY_COLUMN_USAGE view
  */
 
@@ -1063,15 +1056,7 @@ GRANT SELECT ON key_column_usage TO PUBLIC;
 
 
 /*
- * 5.34
- * KEY_PERIOD_USAGE view
- */
-
--- feature not supported
-
-
-/*
- * 5.35
+ * 5.33
  * METHOD_SPECIFICATION_PARAMETERS view
  */
 
@@ -1079,7 +1064,7 @@ GRANT SELECT ON key_column_usage TO PUBLIC;
 
 
 /*
- * 5.36
+ * 5.34
  * METHOD_SPECIFICATIONS view
  */
 
@@ -1087,7 +1072,7 @@ GRANT SELECT ON key_column_usage TO PUBLIC;
 
 
 /*
- * 5.37
+ * 5.35
  * PARAMETERS view
  */
 
@@ -1149,15 +1134,7 @@ GRANT SELECT ON parameters TO PUBLIC;
 
 
 /*
- * 5.38
- * PERIODS view
- */
-
--- feature not supported
-
-
-/*
- * 5.39
+ * 5.36
  * REFERENCED_TYPES view
  */
 
@@ -1165,7 +1142,7 @@ GRANT SELECT ON parameters TO PUBLIC;
 
 
 /*
- * 5.40
+ * 5.37
  * REFERENTIAL_CONSTRAINTS view
  */
 
@@ -1183,7 +1160,7 @@ CREATE VIEW referential_constraints AS
            CAST(
              CASE con.confmatchtype WHEN 'f' THEN 'FULL'
                                     WHEN 'p' THEN 'PARTIAL'
-                                    WHEN 's' THEN 'NONE' END
+                                    WHEN 'u' THEN 'NONE' END
              AS character_data) AS match_option,
 
            CAST(
@@ -1227,7 +1204,7 @@ GRANT SELECT ON referential_constraints TO PUBLIC;
 
 
 /*
- * 5.41
+ * 5.38
  * ROLE_COLUMN_GRANTS view
  */
 
@@ -1247,14 +1224,14 @@ CREATE VIEW role_column_grants AS
 GRANT SELECT ON role_column_grants TO PUBLIC;
 
 
--- 5.42 ROLE_ROUTINE_GRANTS view is based on 5.49 ROUTINE_PRIVILEGES and is defined there instead.
+-- 5.39 ROLE_ROUTINE_GRANTS view is based on 5.45 ROUTINE_PRIVILEGES and is defined there instead.
 
 
--- 5.43 ROLE_TABLE_GRANTS view is based on 5.62 TABLE_PRIVILEGES and is defined there instead.
+-- 5.40 ROLE_TABLE_GRANTS view is based on 5.60 TABLE_PRIVILEGES and is defined there instead.
 
 
 /*
- * 5.44
+ * 5.41
  * ROLE_TABLE_METHOD_GRANTS view
  */
 
@@ -1262,14 +1239,14 @@ GRANT SELECT ON role_column_grants TO PUBLIC;
 
 
 
--- 5.45 ROLE_USAGE_GRANTS view is based on 5.74 USAGE_PRIVILEGES and is defined there instead.
+-- 5.42 ROLE_USAGE_GRANTS view is based on 5.71 USAGE_PRIVILEGES and is defined there instead.
 
 
--- 5.46 ROLE_UDT_GRANTS view is based on 5.73 UDT_PRIVILEGES and is defined there instead.
+-- 5.43 ROLE_UDT_GRANTS view is based on 5.70 UDT_PRIVILEGES and is defined there instead.
 
 
 /*
- * 5.47
+ * 5.44
  * ROUTINE_COLUMN_USAGE view
  */
 
@@ -1277,15 +1254,7 @@ GRANT SELECT ON role_column_grants TO PUBLIC;
 
 
 /*
- * 5.48
- * ROUTINE_PERIOD_USAGE view
- */
-
--- feature not supported
-
-
-/*
- * 5.49
+ * 5.45
  * ROUTINE_PRIVILEGES view
  */
 
@@ -1329,7 +1298,7 @@ GRANT SELECT ON routine_privileges TO PUBLIC;
 
 
 /*
- * 5.42
+ * 5.39
  * ROLE_ROUTINE_GRANTS view
  */
 
@@ -1352,7 +1321,7 @@ GRANT SELECT ON role_routine_grants TO PUBLIC;
 
 
 /*
- * 5.50
+ * 5.46
  * ROUTINE_ROUTINE_USAGE view
  */
 
@@ -1360,7 +1329,7 @@ GRANT SELECT ON role_routine_grants TO PUBLIC;
 
 
 /*
- * 5.51
+ * 5.47
  * ROUTINE_SEQUENCE_USAGE view
  */
 
@@ -1368,7 +1337,7 @@ GRANT SELECT ON role_routine_grants TO PUBLIC;
 
 
 /*
- * 5.52
+ * 5.48
  * ROUTINE_TABLE_USAGE view
  */
 
@@ -1376,7 +1345,7 @@ GRANT SELECT ON role_routine_grants TO PUBLIC;
 
 
 /*
- * 5.53
+ * 5.49
  * ROUTINES view
  */
 
@@ -1489,7 +1458,7 @@ GRANT SELECT ON routines TO PUBLIC;
 
 
 /*
- * 5.54
+ * 5.50
  * SCHEMATA view
  */
 
@@ -1508,7 +1477,7 @@ GRANT SELECT ON schemata TO PUBLIC;
 
 
 /*
- * 5.55
+ * 5.51
  * SEQUENCES view
  */
 
@@ -1520,12 +1489,13 @@ CREATE VIEW sequences AS
            CAST(64 AS cardinal_number) AS numeric_precision,
            CAST(2 AS cardinal_number) AS numeric_precision_radix,
            CAST(0 AS cardinal_number) AS numeric_scale,
-           CAST(p.start_value AS character_data) AS start_value,
-           CAST(p.minimum_value AS character_data) AS minimum_value,
-           CAST(p.maximum_value AS character_data) AS maximum_value,
-           CAST(p.increment AS character_data) AS increment,
-           CAST(CASE WHEN p.cycle_option THEN 'YES' ELSE 'NO' END AS yes_or_no) AS cycle_option
-    FROM pg_namespace nc, pg_class c, LATERAL pg_sequence_parameters(c.oid) p
+           -- XXX: The following could be improved if we had LATERAL.
+           CAST((pg_sequence_parameters(c.oid)).start_value AS character_data) AS start_value,
+           CAST((pg_sequence_parameters(c.oid)).minimum_value AS character_data) AS minimum_value,
+           CAST((pg_sequence_parameters(c.oid)).maximum_value AS character_data) AS maximum_value,
+           CAST((pg_sequence_parameters(c.oid)).increment AS character_data) AS increment,
+           CAST(CASE WHEN (pg_sequence_parameters(c.oid)).cycle_option THEN 'YES' ELSE 'NO' END AS yes_or_no) AS cycle_option
+    FROM pg_namespace nc, pg_class c
     WHERE c.relnamespace = nc.oid
           AND c.relkind = 'S'
           AND (NOT pg_is_other_temp_schema(nc.oid))
@@ -1536,7 +1506,7 @@ GRANT SELECT ON sequences TO PUBLIC;
 
 
 /*
- * 5.56
+ * 5.52
  * SQL_FEATURES table
  */
 
@@ -1556,7 +1526,7 @@ GRANT SELECT ON sql_features TO PUBLIC;
 
 
 /*
- * 5.57
+ * 5.53
  * SQL_IMPLEMENTATION_INFO table
  */
 
@@ -1611,8 +1581,8 @@ GRANT SELECT ON sql_languages TO PUBLIC;
 
 
 /*
+ * 5.54
  * SQL_PACKAGES table
- * removed in SQL:2011
  */
 
 CREATE TABLE sql_packages (
@@ -1638,7 +1608,7 @@ GRANT SELECT ON sql_packages TO PUBLIC;
 
 
 /*
- * 5.58
+ * 5.55
  * SQL_PARTS table
  */
 
@@ -1662,7 +1632,7 @@ INSERT INTO sql_parts VALUES ('14', 'XML-Related Specifications (SQL/XML)', 'YES
 
 
 /*
- * 5.59
+ * 5.56
  * SQL_SIZING table
  */
 
@@ -1708,8 +1678,8 @@ GRANT SELECT ON sql_sizing TO PUBLIC;
 
 
 /*
+ * 5.57
  * SQL_SIZING_PROFILES table
- * removed in SQL:2011
  */
 
 -- The data in this table are defined by various profiles of SQL.
@@ -1728,7 +1698,7 @@ GRANT SELECT ON sql_sizing_profiles TO PUBLIC;
 
 
 /*
- * 5.60
+ * 5.58
  * TABLE_CONSTRAINTS view
  */
 
@@ -1799,7 +1769,7 @@ GRANT SELECT ON table_constraints TO PUBLIC;
 
 
 /*
- * 5.61
+ * 5.59
  * TABLE_METHOD_PRIVILEGES view
  */
 
@@ -1807,7 +1777,7 @@ GRANT SELECT ON table_constraints TO PUBLIC;
 
 
 /*
- * 5.62
+ * 5.60
  * TABLE_PRIVILEGES view
  */
 
@@ -1850,7 +1820,7 @@ GRANT SELECT ON table_privileges TO PUBLIC;
 
 
 /*
- * 5.43
+ * 5.40
  * ROLE_TABLE_GRANTS view
  */
 
@@ -1871,7 +1841,7 @@ GRANT SELECT ON role_table_grants TO PUBLIC;
 
 
 /*
- * 5.63
+ * 5.61
  * TABLES view
  */
 
@@ -1895,10 +1865,9 @@ CREATE VIEW tables AS
            CAST(nt.nspname AS sql_identifier) AS user_defined_type_schema,
            CAST(t.typname AS sql_identifier) AS user_defined_type_name,
 
-           CAST(CASE WHEN c.relkind = 'r' OR
-                          (c.relkind IN ('v', 'f') AND
-                           -- 1 << CMD_INSERT
-                           pg_relation_is_updatable(c.oid, false) & 8 = 8)
+           CAST(CASE WHEN c.relkind = 'r'
+                          OR (c.relkind = 'v'
+                              AND EXISTS (SELECT 1 FROM pg_rewrite WHERE ev_class = c.oid AND ev_type = '3' AND is_instead))
                 THEN 'YES' ELSE 'NO' END AS yes_or_no) AS is_insertable_into,
 
            CAST(CASE WHEN t.typname IS NOT NULL THEN 'YES' ELSE 'NO' END AS yes_or_no) AS is_typed,
@@ -1917,7 +1886,7 @@ GRANT SELECT ON tables TO PUBLIC;
 
 
 /*
- * 5.64
+ * 5.62
  * TRANSFORMS view
  */
 
@@ -1925,7 +1894,7 @@ GRANT SELECT ON tables TO PUBLIC;
 
 
 /*
- * 5.65
+ * 5.63
  * TRANSLATIONS view
  */
 
@@ -1933,7 +1902,7 @@ GRANT SELECT ON tables TO PUBLIC;
 
 
 /*
- * 5.66
+ * 5.64
  * TRIGGERED_UPDATE_COLUMNS view
  */
 
@@ -1965,7 +1934,7 @@ GRANT SELECT ON triggered_update_columns TO PUBLIC;
 
 
 /*
- * 5.67
+ * 5.65
  * TRIGGER_COLUMN_USAGE view
  */
 
@@ -1973,15 +1942,7 @@ GRANT SELECT ON triggered_update_columns TO PUBLIC;
 
 
 /*
- * 5.68
- * TRIGGER_PERIOD_USAGE view
- */
-
--- feature not supported
-
-
-/*
- * 5.69
+ * 5.66
  * TRIGGER_ROUTINE_USAGE view
  */
 
@@ -1989,7 +1950,7 @@ GRANT SELECT ON triggered_update_columns TO PUBLIC;
 
 
 /*
- * 5.70
+ * 5.67
  * TRIGGER_SEQUENCE_USAGE view
  */
 
@@ -1997,7 +1958,7 @@ GRANT SELECT ON triggered_update_columns TO PUBLIC;
 
 
 /*
- * 5.71
+ * 5.68
  * TRIGGER_TABLE_USAGE view
  */
 
@@ -2005,7 +1966,7 @@ GRANT SELECT ON triggered_update_columns TO PUBLIC;
 
 
 /*
- * 5.72
+ * 5.69
  * TRIGGERS view
  */
 
@@ -2063,7 +2024,7 @@ GRANT SELECT ON triggers TO PUBLIC;
 
 
 /*
- * 5.73
+ * 5.70
  * UDT_PRIVILEGES view
  */
 
@@ -2105,7 +2066,7 @@ GRANT SELECT ON udt_privileges TO PUBLIC;
 
 
 /*
- * 5.46
+ * 5.43
  * ROLE_UDT_GRANTS view
  */
 
@@ -2125,7 +2086,7 @@ GRANT SELECT ON role_udt_grants TO PUBLIC;
 
 
 /*
- * 5.74
+ * 5.71
  * USAGE_PRIVILEGES view
  */
 
@@ -2296,7 +2257,7 @@ GRANT SELECT ON usage_privileges TO PUBLIC;
 
 
 /*
- * 5.45
+ * 5.42
  * ROLE_USAGE_GRANTS view
  */
 
@@ -2317,7 +2278,7 @@ GRANT SELECT ON role_usage_grants TO PUBLIC;
 
 
 /*
- * 5.75
+ * 5.72
  * USER_DEFINED_TYPES view
  */
 
@@ -2364,7 +2325,7 @@ GRANT SELECT ON user_defined_types TO PUBLIC;
 
 
 /*
- * 5.76
+ * 5.73
  * VIEW_COLUMN_USAGE
  */
 
@@ -2403,15 +2364,7 @@ GRANT SELECT ON view_column_usage TO PUBLIC;
 
 
 /*
- * 5.77
- * VIEW_PERIOD_USAGE
- */
-
--- feature not supported
-
-
-/*
- * 5.78
+ * 5.74
  * VIEW_ROUTINE_USAGE
  */
 
@@ -2444,7 +2397,7 @@ GRANT SELECT ON view_routine_usage TO PUBLIC;
 
 
 /*
- * 5.79
+ * 5.75
  * VIEW_TABLE_USAGE
  */
 
@@ -2479,7 +2432,7 @@ GRANT SELECT ON view_table_usage TO PUBLIC;
 
 
 /*
- * 5.80
+ * 5.76
  * VIEWS view
  */
 
@@ -2497,14 +2450,13 @@ CREATE VIEW views AS
            CAST('NONE' AS character_data) AS check_option,
 
            CAST(
-             -- (1 << CMD_UPDATE) + (1 << CMD_DELETE)
-             CASE WHEN pg_relation_is_updatable(c.oid, false) & 20 = 20
+             CASE WHEN EXISTS (SELECT 1 FROM pg_rewrite WHERE ev_class = c.oid AND ev_type = '2' AND is_instead)
+                   AND EXISTS (SELECT 1 FROM pg_rewrite WHERE ev_class = c.oid AND ev_type = '4' AND is_instead)
                   THEN 'YES' ELSE 'NO' END
              AS yes_or_no) AS is_updatable,
 
            CAST(
-             -- 1 << CMD_INSERT
-             CASE WHEN pg_relation_is_updatable(c.oid, false) & 8 = 8
+             CASE WHEN EXISTS (SELECT 1 FROM pg_rewrite WHERE ev_class = c.oid AND ev_type = '3' AND is_instead)
                   THEN 'YES' ELSE 'NO' END
              AS yes_or_no) AS is_insertable_into,
 
@@ -2541,7 +2493,7 @@ GRANT SELECT ON views TO PUBLIC;
 -- The following views have dependencies that force them to appear out of order.
 
 /*
- * 5.25
+ * 5.24
  * DATA_TYPE_PRIVILEGES view
  */
 
@@ -2569,7 +2521,7 @@ GRANT SELECT ON data_type_privileges TO PUBLIC;
 
 
 /*
- * 5.30
+ * 5.29
  * ELEMENT_TYPES view
  */
 
@@ -2664,7 +2616,6 @@ GRANT SELECT ON element_types TO PUBLIC;
 
 
 -- SQL/MED views; these use section numbers from part 9 of the standard.
--- (still SQL:2008; there is no SQL:2011 SQL/MED)
 
 /* Base view for foreign table columns */
 CREATE VIEW _pg_foreign_table_columns AS

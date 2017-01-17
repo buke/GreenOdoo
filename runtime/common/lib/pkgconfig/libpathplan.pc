@@ -1,0 +1,10 @@
+prefix=/home/buke/openerp-7.0-12/common
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include/graphviz
+
+Name: libpathplan
+Description: Library for planning polyline and bezier paths around polygon obstacles
+Version: 2.26.3
+Libs: -L${libdir} -lpathplan
+Cflags: -I${includedir}
