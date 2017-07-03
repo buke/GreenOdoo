@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Copyright (C) AB Strakt
 # See LICENSE for details.
 
@@ -43,3 +44,6 @@ from OpenSSL.version import __version__
 
 __all__ = [
     'rand', 'crypto', 'SSL', 'tsafe', '__version__']
+=======
+__all__ = ["constants","escpos","exceptions","printer"]
+>>>>>>> a38544f63f25363bdd2ebcf56b3601aa9ca6a8b7
