@@ -1,3 +1,0 @@
-psutil
-_psutil_linux
-_psutil_posix

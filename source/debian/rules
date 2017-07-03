@@ -1,8 +1,0 @@
-#!/usr/bin/make -f
-# vim:noet:
-
-%:
-	dh ${@} -Spython_distutils
-
-override_dh_installchangelogs:
-	dh_installchangelogs -X./history

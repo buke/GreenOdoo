@@ -1,2 +1,0 @@
-lxml/objectify.so
-lxml/etree.so
