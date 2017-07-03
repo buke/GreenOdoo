@@ -4,13 +4,14 @@
 # 
 # Translators:
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2014
+# Javhlantugs Bazarsad <javhlantugs@gmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-21 14:08+0000\n"
-"PO-Revision-Date: 2015-07-29 08:39+0000\n"
-"Last-Translator: Martin Trigaux\n"
+"PO-Revision-Date: 2017-05-28 14:32+0000\n"
+"Last-Translator: Javhlantugs Bazarsad <javhlantugs@gmail.com>\n"
 "Language-Team: Mongolian (http://www.transifex.com/odoo/odoo-8/language/mn/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,7 +33,7 @@ msgstr "%s (хуулбар)"
 #. module: product
 #: model:product.attribute.value,name:product.product_attribute_value_1
 msgid "16 GB"
-msgstr ""
+msgstr "16 GB"
 
 #. module: product
 #: model:product.template,description_sale:product.product_product_3_product_template
@@ -64,7 +65,7 @@ msgstr "17\" Monitor\n6GB RAM\nHi-Speed 234Q Processor\nQWERTY keyboard"
 #. module: product
 #: model:product.attribute.value,name:product.product_attribute_value_5
 msgid "2.4 GHz"
-msgstr ""
+msgstr "2.4 GHz"
 
 #. module: product
 #: model:product.template,description_sale:product.product_product_8_product_template
@@ -80,7 +81,7 @@ msgstr ""
 #. module: product
 #: model:product.attribute.value,name:product.product_attribute_value_2
 msgid "32 GB"
-msgstr ""
+msgstr "32 GB"
 
 #. module: product
 #: model:product.template,description_sale:product.product_product_4_product_template
@@ -91,7 +92,7 @@ msgid ""
 "7.9‑inch (diagonal) LED-backlit, 128Gb\n"
 "Dual-core A5 with quad-core graphics\n"
 "FaceTime HD Camera, 1.2 MP Photos"
-msgstr ""
+msgstr "7.9‑inch (диагональ) LED-backlit, 128Gb\nDual-core A5 with quad-core graphics\nFaceTime HD Camera, 1.2 MP Photos"
 
 #. module: product
 #: view:product.template:product.product_template_only_form_view
@@ -789,7 +790,7 @@ msgstr ""
 #. module: product
 #: model:product.template,name:product.product_product_7_product_template
 msgid "Apple In-Ear Headphones"
-msgstr ""
+msgstr "Apple брендын чихэвч"
 
 #. module: product
 #: model:product.category,name:product.apple
@@ -799,7 +800,7 @@ msgstr ""
 #. module: product
 #: model:product.template,name:product.product_product_9_product_template
 msgid "Apple Wireless Keyboard"
-msgstr ""
+msgstr "Apple брендын утасгүй гар"
 
 #. module: product
 #: model:product.template,name:product.product_assembly_product_template
@@ -908,12 +909,12 @@ msgstr "Хоосон DVD-RW"
 #. module: product
 #: model:product.template,name:product.product_product_5b_product_template
 msgid "Bose Mini Bluetooth Speaker"
-msgstr ""
+msgstr "Bose брендын Bluetooth жижиг өсгөгч"
 
 #. module: product
 #: model:product.template,description_sale:product.product_product_5b_product_template
 msgid "Bose's smallest portable Bluetooth speaker"
-msgstr ""
+msgstr "Bose-н хамгийн жижиг зөөврийн Bluetooth speaker"
 
 #. module: product
 #: selection:product.ul,type:0
@@ -1311,7 +1312,7 @@ msgstr "Алдаа: Буруу зураасан код"
 msgid ""
 "Error: The default Unit of Measure and the purchase Unit of Measure must be "
 "in the same category."
-msgstr "Алдаа: Хэмжих нэгжийн анхны утга болон борлуулалтын хэмжих нэгжийн анхны утга нь нэг ангилалд байх ёстой."
+msgstr "Алдаа: Хэмжих нэгжийн анхны утга болон Худалдан авалтын хэмжих нэгжийн анхны утга нь нэг ангилалд байх ёстой."
 
 #. module: product
 #: help:product.pricelist.item,name:0
@@ -3315,7 +3316,7 @@ msgstr ""
 #. module: product
 #: model:product.template,name:product.product_product_6_product_template
 msgid "iPad Mini"
-msgstr ""
+msgstr "iPad жижиг"
 
 #. module: product
 #: model:product.template,name:product.product_product_4_product_template
@@ -3329,7 +3330,7 @@ msgstr ""
 #: model:product.template,name:product.product_product_11_product_template
 #: model:product.template,name:product.product_product_11b_product_template
 msgid "iPod"
-msgstr ""
+msgstr "iPod"
 
 #. module: product
 #: model:product.uom,name:product.product_uom_inch
