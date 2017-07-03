@@ -28,6 +28,10 @@ from PIL import Image
 from PIL import ImageEnhance
 from random import randint
 
+# Preload PIL with the minimal subset of image formats we need
+Image.preinit()
+Image._initialized = 2
+
 # ----------------------------------------
 # Image resizing
 # ----------------------------------------
@@ -183,7 +187,7 @@ def image_colorize(original, randomize=True, color=(255, 255, 255)):
     # generate the background color, past it as background
     if randomize:
         color = (randint(32, 224), randint(32, 224), randint(32, 224))
-    image.paste(color)
+    image.paste(color, box=(0, 0) + original.size)
     image.paste(original, mask=original)
     # return the new image
     buffer = StringIO.StringIO()

@@ -1225,8 +1225,9 @@ class sale_order_line(osv.osv):
                 result.update({'price_unit': price})
                 if context.get('uom_qty_change', False):
                     values = {'price_unit': price}
-                    if result.get('product_uos_qty'):
-                        values['product_uos_qty'] = result['product_uos_qty']
+                    for field in ['product_uos_qty', 'th_weight']:
+                        if not result.get(field, False) is False:
+                            values[field] = result[field]
                     return {'value': values, 'domain': {}, 'warning': False}
         if warning_msgs:
             warning = {
@@ -1316,6 +1317,7 @@ class account_invoice(osv.Model):
         so_ids = sale_order_obj.search(cr, uid, [('invoice_ids', 'in', ids)], context=context)
         for so_id in so_ids:
             sale_order_obj.message_post(cr, uid, so_id, body=_("Invoice paid"), context=context)
+            workflow.trg_write(uid, 'sale.order', so_id, cr)
         return res
 
     def unlink(self, cr, uid, ids, context=None):
